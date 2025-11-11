@@ -8,16 +8,16 @@ interface Teacher {
   [key: string]: any; // allows additional dynamic attributes
 }
 
-// Define Directors interface extending Teacher
-interface Directors extends Teacher {
+// Define the Director interface extending Teacher
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
 // Create a Director object
-const director1: Directors = {
-  firstName: "John",
-  lastName: "Doe",
-  location: "London",
+const director1: Director = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
