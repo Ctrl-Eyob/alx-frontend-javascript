@@ -5,7 +5,7 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allows extra attributes
+  [key: string]: any; // allows additional dynamic attributes
 }
 
 // Define the Director interface extending Teacher
@@ -31,10 +31,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+// Implement the printTeacher function
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName} ${lastName}`;
-};
+}
 
 // Example usage
 console.log(printTeacher('John', 'Doe')); // Output: John Doe
