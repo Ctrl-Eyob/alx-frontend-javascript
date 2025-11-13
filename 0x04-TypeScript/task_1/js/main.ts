@@ -1,38 +1,30 @@
-// Define the Teacher interface
-interface Teacher {
-  firstName: string;
-  lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
+// task_1/js/main.ts
+
+// Interface describing the constructor
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
 }
 
-// Define the Director interface extending Teacher
-interface Director extends Teacher {
-  numberOfReports: number;
+// Interface describing the class
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
 }
 
-// Example director object
-const director1: Director = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
+// Implementing the class
+class StudentClass implements StudentClassInterface {
+  constructor(public firstName: string, public lastName: string) {}
 
-console.log(director1);
+  workOnHomework(): string {
+    return 'Currently working';
+  }
 
-// Interface for the printTeacher function (accepts an object)
-interface printTeacherFunction {
-  (teacher: { firstName: string; lastName: string }): string;
+  displayName(): string {
+    return this.firstName;
+  }
 }
 
-// Implement printTeacher using object destructuring and exact return format
-function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName}. ${lastName}`;
-}
-
-// Example usage
-console.log(printTeacher({ firstName: 'John', lastName: 'Doe' })); // -> "John. Doe"
+// Example (optional):
+// const student = new StudentClass('Eyob', 'Getachew');
+// console.log(student.displayName()); // Eyob
+// console.log(student.workOnHomework()); // Currently working
